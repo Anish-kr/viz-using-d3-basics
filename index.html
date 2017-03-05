@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test New</title>
+        <script type="text/javascript" src='C:/Users/anish/Documents/d3/d3.v3.js'> 
+    
+        </script>
+         <style type="text/css">
+		
+			div.bar {
+				display: inline-block;
+				width: 20px;
+				height: 75px;
+				background-color: teal;
+				margin-right: 2px;
+			}
+		
+		</style>
+    
+
+    </head>
+    <body>
+
+
+        <script type="text/javascript">
+        var dataset = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
+                14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
+                24, 18, 25, 9, 3 ];
+
+    
+         
+
+
+        //d3.select("body").selectAll("p").data(dataset).enter().append("p").text(function(d) { return "I can count upto" + d;}).style("color", function(d){
+        //	if (d>15){
+        //		return "red";
+        //	} else {
+        //		return "blue"; 
+        //			}
+        //	});
+        d3.select("body").selectAll("div")
+    	.data(dataset)
+    	.enter()
+    	.append("div")
+    	.attr("class", "bar").style("height",function(d){
+    	var barHeight = d*10;
+    	return barHeight + "px";
+    })
+        
+
+        </script>
+
+    </body>
+</html>     
+
