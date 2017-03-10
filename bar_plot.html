@@ -14,14 +14,16 @@
 			var h=500;
 			var barpadding=2;
 
-			var dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
-                11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
+			var dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
 
 
 // making a bar chart using the svg elements
-			var svg= d3.select("body").append("svg")
-									  .attr("width",w)
-									  .attr("height",h);
+		//	var svg= d3.select("body").append("svg")
+		//							  .attr("width",w)
+		//							  .attr("height",h);
+
+		
+    		var svg = d3.select("body").append("svg").attr("width",w).attr("height",h);
 
 	        svg.selectAll("rect").data(dataset)
 	        					 .enter()
@@ -30,8 +32,17 @@
 	        					 .attr("x",function(d,i){return i*(w/dataset.length); })
 	        					 .attr("y",function(d){ return h-(d*10);})
 	        					 .attr("width",function(d){return (w/dataset.length)-barpadding;})
-	        					 .attr("height",function(d){ return (d*10);})
-	        					 .attr("fill",function(d){ return "rgb( 0,0, "+d*10+")";})
+		        				 .attr("height",function(d){ return (d*10);})
+		        				 .attr("fill",function(d){ return "rgb( 0,0, "+d*10+")";})
+
+	        svg.selectAll("text")
+	        	.data(dataset)
+	        	.enter()
+	        	.append("text")				
+	        	.text(function(d){ return d;})
+	        	.attr("x",function(d,i){return i*(w/dataset.length); });
+
+
 
 	        </script>
 	    </body>
